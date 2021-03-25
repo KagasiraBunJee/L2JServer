@@ -113,7 +113,7 @@ public final class L2LoginClient extends MMOClient<MMOConnection<L2LoginClient>>
 	
 	public boolean usesInternalIP()
 	{
-		return _usesInternalIP;
+		return false;
 	}
 	
 	@Override

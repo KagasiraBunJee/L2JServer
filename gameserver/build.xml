@@ -60,7 +60,7 @@
 	</target>
 
 
-	<target name="compile" depends="version" description="Compile the source.">
+	<target name="compile" description="Compile the source.">
 
 		<javac destdir="${build.classes}" includeantruntime="false" optimize="on" debug="on" source="1.7" target="1.7" encoding="utf-8" nowarn="off">
 			<src path="${src}" />

@@ -28,8 +28,6 @@ import java.util.List;
 import javolution.text.TextBuilder;
 import javolution.util.FastList;
 
-import org.omg.PortableServer.POAManagerPackage.State;
-
 import com.l2jfrozen.Config;
 import com.l2jfrozen.gameserver.ai.CtrlIntention;
 import com.l2jfrozen.gameserver.cache.HtmCache;
@@ -1940,7 +1938,7 @@ public class L2NpcInstance extends L2Character
 			
 			final QuestState qs = player.getQuestState(q.getScriptName());
 			
-			if ((qs == null) || qs.getState().equals(State.ACTIVE))
+			if ((qs == null) || qs.getState().equals(1))
 			{
 				state = "";
 				

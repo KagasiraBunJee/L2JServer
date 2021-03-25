@@ -233,7 +233,7 @@ public final class SelectorThread<T extends MMOClient<?>> extends Thread
 		}
 		catch (final IOException e)
 		{
-			LOGGER.warn("", e);
+			LOGGER.warn("onForcedDisconnection", e);
 			
 			con.getClient().onForcedDisconnection(true);
 			closeConnectionImpl(key, con);
@@ -675,7 +675,7 @@ public final class SelectorThread<T extends MMOClient<?>> extends Thread
 	{
 		try
 		{
-			
+			LOGGER.warn("closeConnectionImpl");
 			/*
 			 * TODO this code must be contains on game module if(con.getClient() instanceof L2GameClient){ if(!((L2GameClient)con.getClient()).is_forcedToClose()){ con.getClient().onDisconnection(); } }else{
 			 */
