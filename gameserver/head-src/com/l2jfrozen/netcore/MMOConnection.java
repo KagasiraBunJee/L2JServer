@@ -145,14 +145,7 @@ public class MMOConnection<T extends MMOClient<?>>
 	
 	final int read(final ByteBuffer buf) throws IOException
 	{
-		if (/*
-			 * !isClosed() &&
-			 */_readableByteChannel != null && _readableByteChannel.isOpen() && !_socket.isInputShutdown())
-		// && !_socket.isOutputShutdown())
-		{
-			return _readableByteChannel.read(buf);
-		}
-		return -1;
+		return _readableByteChannel.read(buf);
 	}
 	
 	final int write(final ByteBuffer buf) throws IOException

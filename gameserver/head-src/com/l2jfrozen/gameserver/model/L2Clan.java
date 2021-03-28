@@ -24,6 +24,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -60,7 +61,6 @@ import com.l2jfrozen.gameserver.network.serverpackets.UserInfo;
 import com.l2jfrozen.util.CloseUtil;
 import com.l2jfrozen.util.database.DatabaseUtils;
 import com.l2jfrozen.util.database.L2DatabaseFactory;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 /**
  * This class ...
@@ -1204,7 +1204,7 @@ public class L2Clan
 						statement = null;
 						
 					}
-					catch (final MySQLIntegrityConstraintViolationException e) // update to avoid miss information
+					catch (final SQLIntegrityConstraintViolationException e) // update to avoid miss information
 					{
 						statement = con.prepareStatement("UPDATE clan_skills SET skill_level=? WHERE skill_id=? AND clan_id=?");
 						statement.setInt(1, newSkill.getLevel());

@@ -10,6 +10,14 @@
 	<property file="build.properties" />
 	<property name="src" location="head-src" />
 	<property name="src-lib" location="lib" />
+	<property name="build" location="build" />
+	<property name="build.classes" location="${build}/classes" />
+	<property name="build.dist" location="${build}/dist" />
+	<property name="build.dist.login" location="${build.dist}/loginserver" />
+	<property name="build.dist.login.lib" location="${build.dist.login}/lib" />
+	<property name="build.dist.game" location="${build.dist}/gameserver" />
+	<property name="build.dist.game.lib" location="${build.dist.game}/lib" />
+	<property name="properties-file" location="${build.dist.game}/config/version/l2jfrozen-server.properties" />
 
 	<target name="prepare-test" description="Prepare the test folder property">
 
@@ -30,14 +38,6 @@
 	</target>
 
 	<target name="prepare-final" description="Prepare the final folders properties">
-
-		<property name="build.classes" location="${build}/classes" />
-		<property name="build.dist" location="${build}/dist" />
-		<property name="build.dist.login" location="${build.dist}/loginserver" />
-		<property name="build.dist.login.lib" location="${build.dist.login}/lib" />
-		<property name="build.dist.game" location="${build.dist}/gameserver" />
-		<property name="build.dist.game.lib" location="${build.dist.game}/lib" />
-		<property name="properties-file" location="${build.dist.game}/config/version/l2jfrozen-server.properties" />
 
 	</target>
 
@@ -60,7 +60,7 @@
 	</target>
 
 
-	<target name="compile" depends="version" description="Compile the source.">
+	<target name="compile" description="Compile the source.">
 
 		<javac destdir="${build.classes}" includeantruntime="false" optimize="on" debug="on" source="1.7" target="1.7" encoding="utf-8" nowarn="off">
 			<src path="${src}" />
@@ -270,7 +270,7 @@
 
 	</target>
 
-	<target name="version" depends="init" description="Create Version file">
+	<target name="version" description="Create Version file">
 
 		<tstamp>
 			<format property="build.tstamp" pattern="dd-MM-yyyy hh:mm:ss aa" />
